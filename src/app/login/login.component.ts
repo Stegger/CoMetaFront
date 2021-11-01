@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/']);
         },
         error => {
-          this.alertService.error(error.message, {autoClose: true, });
+          this.alertService.error(error.message, {autoClose: true,});
           this.loading = false;
         });
   }
