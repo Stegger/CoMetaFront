@@ -16,6 +16,7 @@ import {RegistrationService} from "./_services/registration.service";
 import {AlertService} from "./_services/alert.service"
 import {AlertComponent} from "./alert/alert.component";
 import {JwtInterceptor} from "./_helpers/jwt.interceptor";
+import {ErrorInterceptor} from "./_helpers/error.interceptor";
 
 @NgModule({
   imports: [
@@ -36,6 +37,7 @@ import {JwtInterceptor} from "./_helpers/jwt.interceptor";
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true},
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi:true},
     AuthGuard,
     AuthenticationService,
     RegistrationService,
